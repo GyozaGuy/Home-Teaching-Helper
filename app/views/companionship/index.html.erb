@@ -1,0 +1,6 @@
+<% @companionships.each do |companionship| %>
+Companionship <%= companionship.id %>:<br />
+<% companionship.members.each do |member| %>
+<%= member.first_name %> <%= member.last_name %><br />
+<% end %>
+<% end %>
