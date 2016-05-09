@@ -1,0 +1,20 @@
+<h1>Districts</h1>
+<% @districts.each do |d| %>
+<h2>District <%= d.id %></h2>
+<b>District Leader: <%= d.member.first_name %> <%= d.member.last_name %></b><br />
+<% d.assignments.each do |a| %>
+<h3>Assignment <%= a.id %></h3>
+<p>
+  <b>Companions</b><br />
+  <% a.companionship.members.each do |c| %>
+  <%= c.first_name %> <%= c.last_name %><br />
+  <% end %>
+</p>
+<p>
+  <b>Members Being Taught</b><br />
+  <% a.members.each do |m| %>
+  <%= m.first_name %> <%= m.last_name %><br />
+  <% end %>
+</p>
+<% end %>
+<% end %>

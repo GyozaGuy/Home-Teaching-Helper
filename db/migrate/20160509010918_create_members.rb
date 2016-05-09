@@ -7,6 +7,8 @@ class CreateMembers < ActiveRecord::Migration
       t.string :phone_number
       t.string :address
       t.text :notes
+      t.references :district
+      t.references :assignment
       t.references :companionship
       t.timestamps null: false
     end

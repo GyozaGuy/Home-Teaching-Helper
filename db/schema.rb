@@ -11,9 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509010918) do
+ActiveRecord::Schema.define(version: 20160509050103) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "district_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "companionships", force: :cascade do |t|
+    t.integer  "assignment_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "districts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,6 +37,8 @@ ActiveRecord::Schema.define(version: 20160509010918) do
     t.string   "phone_number"
     t.string   "address"
     t.text     "notes"
+    t.integer  "district_id"
+    t.integer  "assignment_id"
     t.integer  "companionship_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
